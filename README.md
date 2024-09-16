@@ -57,7 +57,7 @@ mkdir ~/vms/ubuntu
 Now we should download the latest ISO for Ubuntu
 
 ```Bash
-fetch -o ~/vms/ubuntu/ubuntu-installer.iso https://releases.ubuntu.com/24.04/ubuntu-24.04-desktop-amd64.iso
+fetch -o ~/vms/ubuntu/ubuntu-installer.iso https://releases.ubuntu.com/24.04.1/ubuntu-24.04.1-desktop-amd64.iso
 ```
 **_NOTE:_**  If using a USB stick, you'll need to mount the drive and then copy the iso to the ~/vms/ubuntu/ directory.
 
