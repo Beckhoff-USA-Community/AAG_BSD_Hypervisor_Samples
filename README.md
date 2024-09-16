@@ -150,6 +150,27 @@ doas sh ubuntu-vm.sh config
 doas sh ubuntu-vm.sh run
 ```
 
+## Install PyAds for Ubuntu
+
+Install the ADS C++ Driver
+```Bash
+# clone the repository
+git clone https://github.com/Beckhoff/ADS.git
+# change into root of the cloned repository
+cd ADS
+# configure meson to build the library into "build" dir
+meson setup build
+# let ninja build the library
+ninja -C build
+```
+
+Install PyAds
+```Bash
+sudo apt install python3-pip
+sudo apt install pipx
+pipx install pyads
+```
+
 ## Install ROS
 
 Follow the guide here to install ROS into the Ubuntu Hypervisor
