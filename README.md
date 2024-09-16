@@ -167,9 +167,43 @@ ninja -C build
 Install PyAds
 ```Bash
 sudo apt install python3-pip
-sudo apt install pipx
-pipx install pyads
+pip install pyads
 ```
+Depending on your Linux system rules, you might need something like this instead
+```Bash
+pip install pyads --break-system-packages
+```
+
+Sample Program
+```Python
+import pyads
+CLIENT_NETID = '1.2.3.4.1.1'
+CLIENT_IP = '192.168.10.187
+TARGET_IP = '192.168.10.197'
+TARGET_NETID = '192.168.10.197.1.1'
+TARGET_USERNAME = 'Administrator'
+TARGET_PASSWORD = '1'
+ROUTE_NAME = 'RouteToMyPC'
+
+# Create a Route if not already generated
+pyads.open_port()
+pyads.set_local_address(CLIENT_NETID)
+pyads.add_route_to_plc(CLIENT_NETID, HOSTNAME, TARGET_IP, TARGET_USERNAME, TARGET_PASSWORD, route_name=ROUTE_NAME)
+pyads.close_port()
+
+plc = pyads.Connection(TARGET_NETID, pyads.PORT_TC3PLC1, TARGET_IP)
+plc.open()
+
+# check the connection state
+plc.read_state()
+
+# read int value by name
+print(f"PLC Value: {plc.read_by_name("GVL.int_val")}')
+
+plc.close()
+
+```
+
 
 ## Install ROS
 
