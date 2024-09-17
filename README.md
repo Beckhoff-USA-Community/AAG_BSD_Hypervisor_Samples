@@ -188,7 +188,7 @@ ROUTE_NAME = 'RouteToMyPC'
 # Create a Route if not already generated
 pyads.open_port()
 pyads.set_local_address(CLIENT_NETID)
-pyads.add_route_to_plc(CLIENT_NETID, HOSTNAME, TARGET_IP, TARGET_USERNAME, TARGET_PASSWORD, route_name=ROUTE_NAME)
+pyads.add_route_to_plc(CLIENT_NETID, CLIENT_IP, TARGET_IP, TARGET_USERNAME, TARGET_PASSWORD, route_name=ROUTE_NAME)
 pyads.close_port()
 
 plc = pyads.Connection(TARGET_NETID, pyads.PORT_TC3PLC1, TARGET_IP)
@@ -198,7 +198,7 @@ plc.open()
 plc.read_state()
 
 # read int value by name
-print(f"PLC Value: {plc.read_by_name("GVL.int_val")}')
+print(f'PLC Value: {plc.read_by_name("GVL.int_val")}')
 
 plc.close()
 
